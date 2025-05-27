@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UNICODE" ?>
+<topo version="1.3.00.100">
+    <devices>
+        <dev id="7D30CC9E-1201-4aa8-BBC6-6E353DC7D0AF" name="PC3" poe="0" model="PC" settings=" -simpc_ip 192.168.3.1  -simpc_mask 255.255.255.0  -simpc_gateway 192.168.3.254  -simpc_mac 54-89-98-98-02-BC  -simpc_mc_dstip 0.0.0.0  -simpc_mc_dstmac 00-00-00-00-00-00  -simpc_dns1 0.0.0.0  -simpc_dns2 0.0.0.0  -simpc_ipv6 ::  -simpc_prefix 128  -simpc_gatewayv6 ::  -simpc_dhcp_state 0  -simpc_dhcpv6_state 0  -simpc_dns_auto_state 0  -simpc_igmp_version 1  -simpc_group_ip_start 0.0.0.0  -simpc_src_ip_start 0.0.0.0  -simpc_group_num 0  -simpc_group_step 0  -simpc_src_num 0  -simpc_src_step 0  -simpc_type MODE_IS_INCLUDE " system_mac="54-89-98-98-02-BC" com_port="0" bootmode="0" cx="405.000000" cy="251.000000" edit_left="432" edit_top="305">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="1" />
+            </slot>
+        </dev>
+        <dev id="6FBA04A5-6A7B-4a59-BEBB-541924F7FD25" name="AR2" poe="0" model="AR2220" settings="" system_mac="00-E0-FC-5B-33-82" com_port="2001" bootmode="0" cx="169.000000" cy="224.000000" edit_left="196" edit_top="278">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="GE" count="1" />
+                <interface sztype="Ethernet" interfacename="GE" count="2" />
+            </slot>
+        </dev>
+        <dev id="F0A464DF-9CAB-42cb-BB42-80060AEF8D0F" name="AR1" poe="0" model="AR2220" settings="" system_mac="00-E0-FC-2D-12-4C" com_port="2000" bootmode="0" cx="425.000000" cy="62.000000" edit_left="443" edit_top="122">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="GE" count="1" />
+                <interface sztype="Ethernet" interfacename="GE" count="2" />
+            </slot>
+        </dev>
+        <dev id="BA149305-495C-4d6c-AA6B-178B44C20259" name="PC1" poe="0" model="PC" settings=" -simpc_ip 192.168.1.1  -simpc_mask 255.255.255.0  -simpc_gateway 192.168.1.254  -simpc_mac 54-89-98-8E-5A-07  -simpc_mc_dstip 0.0.0.0  -simpc_mc_dstmac 00-00-00-00-00-00  -simpc_dns1 0.0.0.0  -simpc_dns2 0.0.0.0  -simpc_ipv6 ::  -simpc_prefix 128  -simpc_gatewayv6 ::  -simpc_dhcp_state 0  -simpc_dhcpv6_state 0  -simpc_dns_auto_state 0  -simpc_igmp_version 1  -simpc_group_ip_start 0.0.0.0  -simpc_src_ip_start 0.0.0.0  -simpc_group_num 0  -simpc_group_step 0  -simpc_src_num 0  -simpc_src_step 0  -simpc_type MODE_IS_INCLUDE " system_mac="54-89-98-8E-5A-07" com_port="0" bootmode="0" cx="131.000000" cy="371.000000" edit_left="158" edit_top="425">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="1" />
+            </slot>
+        </dev>
+        <dev id="6B4870F2-BCA3-4288-81AA-6E01E6FE90E2" name="AR3" poe="0" model="AR2220" settings="" system_mac="00-E0-FC-E9-4A-EE" com_port="2002" bootmode="0" cx="616.000000" cy="219.000000" edit_left="643" edit_top="273">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="GE" count="1" />
+                <interface sztype="Ethernet" interfacename="GE" count="2" />
+            </slot>
+        </dev>
+        <dev id="B669BC4F-C2AA-4bbc-82B2-13B8BC943C71" name="PC2" poe="0" model="PC" settings=" -simpc_ip 192.168.2.1  -simpc_mask 255.255.255.0  -simpc_gateway 192.168.2.254  -simpc_mac 54-89-98-B4-7D-F0  -simpc_mc_dstip 0.0.0.0  -simpc_mc_dstmac 00-00-00-00-00-00  -simpc_dns1 0.0.0.0  -simpc_dns2 0.0.0.0  -simpc_ipv6 ::  -simpc_prefix 128  -simpc_gatewayv6 ::  -simpc_dhcp_state 0  -simpc_dhcpv6_state 0  -simpc_dns_auto_state 0  -simpc_igmp_version 1  -simpc_group_ip_start 0.0.0.0  -simpc_src_ip_start 0.0.0.0  -simpc_group_num 0  -simpc_group_step 0  -simpc_src_num 0  -simpc_src_step 0  -simpc_type MODE_IS_INCLUDE " system_mac="54-89-98-B4-7D-F0" com_port="0" bootmode="0" cx="664.000000" cy="396.000000" edit_left="691" edit_top="450">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="1" />
+            </slot>
+        </dev>
+    </devices>
+    <lines>
+        <line srcDeviceID="6FBA04A5-6A7B-4a59-BEBB-541924F7FD25" destDeviceID="F0A464DF-9CAB-42cb-BB42-80060AEF8D0F">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="0" srcBoundRect_X="232.491058" srcBoundRect_Y="227.908005" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="0" tarBoundRectIsMoved="1" tarBoundRect_X="415.508942" tarBoundRect_Y="112.091995" tarOffset_X="-55.000000" tarOffset_Y="-27.000000" />
+        </line>
+        <line srcDeviceID="6FBA04A5-6A7B-4a59-BEBB-541924F7FD25" destDeviceID="BA149305-495C-4d6c-AA6B-178B44C20259">
+            <interfacePair lineName="Copper" srcIndex="1" srcBoundRectIsMoved="0" srcBoundRect_X="185.192123" srcBoundRect_Y="292.809418" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="0" tarBoundRectIsMoved="0" tarBoundRect_X="168.807877" tarBoundRect_Y="356.190582" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+        <line srcDeviceID="F0A464DF-9CAB-42cb-BB42-80060AEF8D0F" destDeviceID="6B4870F2-BCA3-4288-81AA-6E01E6FE90E2">
+            <interfacePair lineName="Copper" srcIndex="1" srcBoundRectIsMoved="1" srcBoundRect_X="485.360046" srcBoundRect_Y="116.421608" srcOffset_X="24.000000" srcOffset_Y="-27.000000" tarIndex="0" tarBoundRectIsMoved="0" tarBoundRect_X="609.639954" tarBoundRect_Y="218.578384" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+        <line srcDeviceID="6B4870F2-BCA3-4288-81AA-6E01E6FE90E2" destDeviceID="B669BC4F-C2AA-4bbc-82B2-13B8BC943C71">
+            <interfacePair lineName="Copper" srcIndex="1" srcBoundRectIsMoved="0" srcBoundRect_X="654.302612" srcBoundRect_Y="287.678406" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="0" tarBoundRectIsMoved="0" tarBoundRect_X="679.697388" tarBoundRect_Y="381.321594" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+        <line srcDeviceID="7D30CC9E-1201-4aa8-BBC6-6E353DC7D0AF" destDeviceID="F0A464DF-9CAB-42cb-BB42-80060AEF8D0F">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="0" srcBoundRect_X="436.544342" srcBoundRect_Y="235.056000" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="2" tarBoundRectIsMoved="1" tarBoundRect_X="447.455658" tarBoundRect_Y="131.944000" tarOffset_X="9.000000" tarOffset_Y="32.000000" />
+        </line>
+    </lines>
+    <shapes />
+    <txttips>
+        <txttip left="24" top="583" right="987" bottom="709" content="&#x0D;&#x0A;路由信息协议（RIP）是内部网关协议中使用较为广泛的协议，它是一种分布式、基于距离向量的路由选择协议。&#x0D;&#x0A;&#x0D;&#x0A;RIP将路由控制信息（30秒1次）向全网广播。如果没有收到路由控制信息，连接就会断开。&#x0D;&#x0A;不过，这可能是丢包导致的，因此规定RIP等待5次。如果等了6次（180秒）仍未收到路由信息，才会真正关闭连接。&#x0D;&#x0A;&#x0D;&#x0A;RIP基于距离向量算法决定路径。距离的单位为“跳数。跳数是指所经过路由的个数。RIP希望尽可能少的通过路由器将数据包转发到目标IP地址。&#x0D;&#x0A;" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="144" top="445" right="231" bottom="462" content="192.168.1.1" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="60" top="269" right="162" bottom="286" content="192.168.1.254" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="224" top="211" right="311" bottom="228" content="192.168.4.1" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="304" top="116" right="391" bottom="133" content="192.168.4.2" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="603" top="195" right="690" bottom="212" content="192.168.5.1" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="497" top="104" right="584" bottom="121" content="192.168.5.2" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="418" top="328" right="505" bottom="345" content="192.168.3.1" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="688" top="468" right="775" bottom="485" content="192.168.2.1" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="425" top="150" right="527" bottom="167" content="192.168.3.254" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="1013" top="84" right="1198" bottom="632" content="ar2：&#x0D;&#x0A;int g0/0/1&#x0D;&#x0A;ip add 192.168.1.254 24&#x0D;&#x0A;int g0/0/0 &#x0D;&#x0A;ip add 192.168.4.1&#x0D;&#x0A;q&#x0D;&#x0A;rip 1&#x0D;&#x0A;version 2&#x0D;&#x0A;network 192.168.1.0&#x0D;&#x0A;network 192.168.4.0&#x0D;&#x0A;&#x0D;&#x0A;ar1:&#x0D;&#x0A;int g0/0/0&#x0D;&#x0A;ip add 192.168.4.2 24&#x0D;&#x0A;int g0/0/1&#x0D;&#x0A;ip add 192.168.5.2 24&#x0D;&#x0A;int g0/0/2&#x0D;&#x0A;ip add 192.168.3.254 24&#x0D;&#x0A;q&#x0D;&#x0A;rip 1&#x0D;&#x0A;version 2&#x0D;&#x0A;network 192.168.4.0&#x0D;&#x0A;network 192.168.3.0&#x0D;&#x0A;network 192.168.5.0&#x0D;&#x0A;&#x0D;&#x0A;ar3:&#x0D;&#x0A;int g0/0/1&#x0D;&#x0A;ip add 192.168.2.1 24&#x0D;&#x0A;int g0/0/0&#x0D;&#x0A;ip add 192.168.5.1 24&#x0D;&#x0A;q&#x0D;&#x0A;rip 1&#x0D;&#x0A;version 2&#x0D;&#x0A;network 192.168.5.0&#x0D;&#x0A;network 192.168.2.0" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="664" top="275" right="766" bottom="292" content="192.168.2.254" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+    </txttips>
+</topo>

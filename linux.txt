@@ -1,0 +1,5 @@
+远程连接
+
+ssh achao@113.44.199.5
+ssh -i C:/Users/22396/Desktop/pem/ubuntu.pem  ubuntu@46.137.215.104
+bcdedit /set hypervisorlaunchtype off
