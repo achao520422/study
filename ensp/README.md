@@ -50,3 +50,157 @@ display stp brief
 stp priority 4096 （范围为 0-65535 且为 4096 的整数倍）
 也可以 stp root primary   相当于 stp priority 0
 ```
+# OSPF 内部网关协议 --->路由
+
+```什么是ospf
+OSPF（Open Shortest Path First，开放式最短路径优先）是一种用于互联网协议（IP）网络的内部网关协议（IGP），主要用于在单一自治系统（AS, Autonomous System）内决策路由。它是一个基于链路状态算法的路由协议，通过交换链路状态信息来构建网络拓扑图，并根据该拓扑计算出到达各个目的网络的最短路径树，从而确定最佳路由。
+
+以下是OSPF的一些关键特点：
+
+链路状态路由协议：与距离矢量协议不同，OSPF路由器之间交换的是链路状态公告（LSA, Link State Advertisement），这些信息描述了网络中的链路状态和成本，使得每个路由器可以构建一个完整的网络拓扑图。
+分层结构：OSPF支持将网络划分为不同的区域（Area），包括一个主干区域（Area 0）和多个非主干区域。这种设计有助于简化大规模网络中的路由管理，同时减少路由更新对网络资源的消耗。
+快速收敛：当网络拓扑发生变化时，OSPF能够迅速检测到变化并通过扩散过程通知整个网络，实现快速的路由收敛。
+支持VLSM/CIDR：OSPF支持可变长子网掩码（VLSM）和无类别域间路由（CIDR），允许在同一网络中更灵活地分配IP地址空间。
+认证机制：为了增强安全性，OSPF支持报文验证功能，可以配置简单密码或MD5认证来保护路由信息交换的安全性。
+负载均衡：OSPF可以在多条等价路径上进行负载均衡，提高网络的利用率和可靠性。
+总之，OSPF是一个强大而灵活的路由协议，适用于中大型网络，提供了高效、可靠的路由选择解决方案。
+```
+![ospf toop](https://raw.githubusercontent.com/achao520422/study/32fe5869cab601a3f6cab544b529190971f3bad1/ensp/image/ospf.png)
+```配置流程
+1. 配置 ospf 进程以及路由 Id
+ospf 1 router-id 1.1.1.1
+2. 配置 area
+area 0 （0表示主干区域）
+3. 配置 network ->直连网段
+network 192.168.1.0 0.0.0.255 需要使用反掩码
+
+
+
+AR1:
+<Huawei>u t m
+<Huawei>system-view
+[Huawei]sys R1
+[R1-ospf-1]int g0/0/0
+[R1-GigabitEthernet0/0/0]ip address 10.10.3.1 24
+[R1-GigabitEthernet0/0/0]int g0/0/1
+[R1-GigabitEthernet0/0/1]ip address 10.10.2.2 24
+[R1-GigabitEthernet0/0/1]q
+
+# ospf配置
+[R1]ospf 1 router-id 1.1.1.1
+[R1-ospf-1]area 0
+[R1-ospf-1-area-0.0.0.0]network 10.10.2.0 0.0.0.255
+[R1-ospf-1-area-0.0.0.0]network 10.10.3.0 0.0.0.255
+
+
+
+
+AR2：
+<Huawei>u t m
+Info: Current terminal monitor is off.
+<Huawei>sys
+Enter system view, return user view with Ctrl+Z.
+[Huawei]sys R2
+[R2]int g0/0/0
+[R2-GigabitEthernet0/0/0]ip add 10.10.3.2 24
+[R2-GigabitEthernet0/0/0]int g0/0/1
+[R2-GigabitEthernet0/0/1]ip add 10.10.4.1 24
+[R2-GigabitEthernet0/0/1]q
+[R2]ospf 1 router-id 2.2.2.2
+[R2-ospf-1]area 0
+[R2-ospf-1-area-0.0.0.0]network 10.10.3.0 0.0.0.255
+[R2-ospf-1-area-0.0.0.0]network 10.10.4.0 0.0.0.255
+[R2-ospf-1-area-0.0.0.0]
+
+
+AR3既要配置主干网，也要配置边界网
+
+
+
+AR3:
+<Huawei>u t m
+Info: Current terminal monitor is off.
+<Huawei>sys
+Enter system view, return user view with Ctrl+Z.
+[Huawei]sys R3
+[R3]int g0/0/0
+[R3-GigabitEthernet0/0/0]ip add 10.10.4.2 24
+[R3-GigabitEthernet0/0/0]int g0/0/1
+[R3-GigabitEthernet0/0/1]ip add 10.10.10.1 24
+[R3-GigabitEthernet0/0/1]int g0/0/2
+[R3-GigabitEthernet0/0/2]ip add 10.10.8.1 24
+[R3-GigabitEthernet0/0/2]int g2/0/0
+[R3-GigabitEthernet2/0/0]ip address 10.10.5.1 24
+[R3-GigabitEthernet2/0/0]q
+
+[R3]ospf 1 router-id 3.3.3.3
+[R3-ospf-1]area 0
+[R3-ospf-1-area-0.0.0.0]network 10.10.5.0 0.0.0.255
+[R3-ospf-1-area-0.0.0.0]network 10.10.4.0 0.0.0.255
+
+
+
+AR4:
+<Huawei>u t m
+[Huawei]sys R4
+[R4]int g0/0/0
+[R4-GigabitEthernet0/0/0]ip add 10.10.2.1 24
+[R4-GigabitEthernet0/0/0]int g0/0/1
+[R4-GigabitEthernet0/0/1]ip add 10.10.5.2 24
+[R4-GigabitEthernet0/0/1]int g0/0/2
+[R4-GigabitEthernet0/0/2]ip add 10.10.1.2 24
+[R4-GigabitEthernet0/0/2]q
+
+[R4]ospf 1 rou
+[R4]ospf 1 router-id 4.4.4.4
+[R4-ospf-1]area 0
+[R4-ospf-1-area-0.0.0.0]network 10.10.2.0 0.0.0.255
+[R4-ospf-1-area-0.0.0.0]network 10.10.5.0 0.0.0.255
+[R4-ospf-1-area-0.0.0.0]network 10.10.1.0 0.0.0.255
+[R4-ospf-1-area-0.0.0.0]q
+
+
+
+AR5:
+
+<Huawei>u t m
+Info: Current terminal monitor is off.
+<Huawei>sys
+Enter system view, return user view with Ctrl+Z.
+[Huawei]sys R5
+[R5]int g0/0/0
+[R5-GigabitEthernet0/0/0]ip add 10.10.6.2 24
+[R5-GigabitEthernet0/0/0]int g0/0/1
+[R5-GigabitEthernet0/0/1]ip add 10.10.9.1 24
+[R5-GigabitEthernet0/0/1]q
+[R5]ospf 1 router-id 5.5.5.5
+[R5-ospf-1]area 1
+[R5-ospf-1-area-0.0.0.1]network 10.10.6.0 0.0.0.255
+[R5-ospf-1-area-0.0.0.1]network 10.10.9.0 0.0.0.255
+
+
+AR6:
+<Huawei>u t m
+Info: Current terminal monitor is off.
+<Huawei>sys
+Enter system view, return user view with Ctrl+Z.
+[Huawei]sys R6
+[R6]int g0/0/0
+[R6-GigabitEthernet0/0/0]ip add 10.10.9.2 24
+[R6-GigabitEthernet0/0/0]int g0/0/1
+[R6-GigabitEthernet0/0/1]ip add 10.10.8.2 24
+[R6-GigabitEthernet0/0/1]int g0/0/2
+[R6-GigabitEthernet0/0/2]ip add 10.10.10.2 24
+[R6-GigabitEthernet0/0/2]q
+
+
+
+
+[R6]ospf 1 router-id 6.6.6.6
+[R6-ospf-1]area 1
+[R6-ospf-1-area-0.0.0.1]network 10.10.9.0 0.0.0.255
+[R6-ospf-1-area-0.0.0.1]network 10.10.8.1 0.0.0.255
+[R6-ospf-1-area-0.0.0.1]network 10.10.10.0 0.0.0.255
+[R6-ospf-1-area-0.0.0.1]q
+
+```
