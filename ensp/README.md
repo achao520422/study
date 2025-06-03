@@ -294,7 +294,7 @@ AR10：
 [Huawei]int g0/0/1
 [Huawei-GigabitEthernet0/0/1]ip add 192.168.2.254 24
 [Huawei-GigabitEthernet0/0/1]q
-[Huawei]bgp 100
+[Huawei]bgp 300
 [Huawei-bgp]peer 10.10.1.2 as-number 200
 [Huawei-bgp]import-route direct
 ```
