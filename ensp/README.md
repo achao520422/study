@@ -204,3 +204,101 @@ Enter system view, return user view with Ctrl+Z.
 [R6-ospf-1-area-0.0.0.1]q
 
 ```
+
+
+
+# BGP 边界网关协议 ---> 路由
+```什么是边界网关协议
+BGP（Border Gateway Protocol）是一种路径矢量路由协议，用于在不同的自治系统（AS）间交换路由信息，并决定数据传输的最佳路径。
+```
+
+![bgp toop](https://raw.githubusercontent.com/achao520422/study/refs/heads/main/ensp/image/BGP.png)
+
+```配置流程
+AR6:
+<Huawei>u t m
+<Huawei>sys
+[Huawei]int g0/0/0
+[Huawei-GigabitEthernet0/0/0]ip add 10.10.1.1 24
+[Huawei]int g0/0/1
+[Huawei-GigabitEthernet0/0/1]ip add 192.168.1.254 24
+[Huawei-GigabitEthernet0/0/1]q
+[Huawei]bgp 100
+[Huawei-bgp]peer 10.10.1.2 as-number 200
+[Huawei-bgp]import-route direct
+
+
+
+Ar7:
+<Huawei>u t m
+<Huawei>sys
+[Huawei]int g0/0/0
+[Huawei-GigabitEthernet0/0/0]ip add 10.10.1.2 24
+[Huawei]int g0/0/1
+[Huawei-GigabitEthernet0/0/1]ip add 10.10.2.1 24
+[Huawei-GigabitEthernet0/0/1]q
+[Huawei]bgp 200
+[Huawei-bgp]peer 10.10.1.1 as-number 100 # 添加邻居 bgp
+[Huawei-bgp]import-route ospf  #为了将ws内部的ospf分享给bgp学习
+
+[Huawei-bgp]q
+[Huawei]ospf 1
+[Huawei-ospf-1]area 0
+[Huawei-ospf-1-area-0.0.0.0]network 10.10.2.0 0.0.0.255
+[Huawei-ospf-1-area-0.0.0.0]import-route bgp #将 bpg 的路由表给 ospf 学习
+
+
+
+
+AR8:
+<Huawei>u t m
+<Huawei>sys
+[Huawei]int g0/0/0
+[Huawei-GigabitEthernet0/0/0]ip add 10.10.2.2 24
+[Huawei]int g0/0/1
+[Huawei-GigabitEthernet0/0/1]ip add 10.10.3.1 24
+[Huawei-GigabitEthernet0/0/1]q
+[Huawei]ospf 1
+[Huawei-ospf-1]area 0
+[Huawei-ospf-1-area-0.0.0.0]network 10.10.2.0 0.0.0.255
+[Huawei-ospf-1-area-0.0.0.0]network 10.10.3.0 0.0.0.255
+
+
+
+Ar9:
+<Huawei>u t m
+<Huawei>sys
+[Huawei]int g0/0/0
+[Huawei-GigabitEthernet0/0/0]ip add 10.10.3.2 24
+[Huawei]int g0/0/1
+[Huawei-GigabitEthernet0/0/1]ip add 10.10.4.1 24
+[Huawei-GigabitEthernet0/0/1]q
+[Huawei]bgp 200
+[Huawei-bgp]peer 10.10.4.2 as-number 300
+[Huawei-bgp]import-route ospf  #为了将ws内部的ospf分享给bgp学习
+
+[Huawei-bgp]q
+[Huawei]ospf 1
+[Huawei-ospf-1]area 0
+[Huawei-ospf-1-area-0.0.0.0]network 10.10.3.0 0.0.0.255
+[Huawei-ospf-1-area-0.0.0.0]import-route bgp #将 bpg 的路由表给 ospf 学习
+
+
+
+
+AR10：
+<Huawei>u t m
+<Huawei>sys
+[Huawei]int g0/0/0
+[Huawei-GigabitEthernet0/0/0]ip add 10.10.4.2 24
+[Huawei]int g0/0/1
+[Huawei-GigabitEthernet0/0/1]ip add 192.168.2.254 24
+[Huawei-GigabitEthernet0/0/1]q
+[Huawei]bgp 100
+[Huawei-bgp]peer 10.10.1.2 as-number 200
+[Huawei-bgp]import-route direct
+```
+
+```难点
+bgp 之间默认不会自动相互学习路由表，需要使用 import-route 命令去指定学习,如果是 bgp 直连则使用 import-route direct,上述例子中我使用的是bgp 学习 ospf 的路由表，即 import-route ospf ,当然 ospf 与 bgp 之间页不能相互学习路由表,需要在 ospf 中配置 import-route bgp 。
+```
