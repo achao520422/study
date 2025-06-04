@@ -1,3 +1,55 @@
+# 交换机远程登陆
+![remote login toop](https://raw.githubusercontent.com/achao520422/study/refs/heads/main/ensp/image/%E8%BF%9C%E7%A8%8B%E7%99%BB%E9%99%86toop.png)
+
+![cloud 01](https://raw.githubusercontent.com/achao520422/study/refs/heads/main/ensp/image/%E4%BA%91%E8%AE%BE%E5%A4%8701.png)
+
+![remote login toop](https://raw.githubusercontent.com/achao520422/study/refs/heads/main/ensp/image/%E4%BA%91%E8%AE%BE%E5%A4%8702.png)
+
+```配置
+交换机远程登陆 aaa
+
+1. 配置vlan ip
+[Huawei]int vlan 1
+[Huawei-Vlanif1]ip add 192.168.34.11 255.255.255.0
+
+2. 配置接口
+[Huawei]int e0/0/1
+[Huawei-Ethernet0/0/1]port link-type access
+
+3. 配置 aaa
+[Huawei]aaa
+[Huawei-aaa]local-user chaoarron password cipher 147258369  # 添加一个用户
+[Huawei-aaa]local-user chaoarron service-type telnet # 设置用户登陆协议未telnet
+
+4. 配置登陆
+[Huawei]user-interface vty 0 4
+[Huawei-ui-vty0-4]authentication-mode aaa
+[Huawei-ui-vty0-4]user privilege level 15
+[Huawei-ui-vty0-4]protocol inbound telnet
+
+5. 开启 telnet （可选）
+[Huawei]telnet server enable
+
+
+
+
+telnet password 远程登陆
+
+
+1. 配置vlan ip
+[Huawei]int vlan 1
+[Huawei-Vlanif1]ip add 192.168.34.11 255.255.255.0
+
+2. 配置接口
+[Huawei]int e0/0/1
+[Huawei-Ethernet0/0/1]port link-type access
+
+3. 配置 password 登陆
+[Huawei]user-interface vty 0 4
+[Huawei-ui-vty0-4]authentication-mode password
+[Huawei-ui-vty0-4]set authentication password cipher 147258369
+[Huawei-ui-vty0-4]user privilege level 15
+```
 # 路由信息协议（RIP）--->路由
 ```text
 是内部网关协议中使用较为广泛的协议，它是一种分布式、基于距离向量的路由选择协议。

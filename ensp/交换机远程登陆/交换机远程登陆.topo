@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UNICODE" ?>
+<topo version="1.3.00.100">
+    <devices>
+        <dev id="80E40477-6557-4434-B70F-0ADAB85B4FA9" name="Cloud1" poe="0" model="Cloud" settings="" system_mac="" com_port="0" bootmode="0" cx="636.500000" cy="286.500000" edit_left="679" edit_top="371">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="2" />
+                <interface sztype="Ethernet" interfacename="GE" count="0" />
+                <interface sztype="Serial" interfacename="Serial" count="0" />
+                <interfaceMap sztype="Ethernet" interfacename="Ethernet" displayNo="1" remoteDisplayNo="2" adapterUid="\Device\NPF_{24DFF83D-13F9-4555-B5CB-53049D8BB073}" isOpen="1" udpPort="0" peerIPAdd="0.0.0.0" peerIP="0" peerPort="0" />
+                <interfaceMap sztype="Ethernet" interfacename="Ethernet" displayNo="2" remoteDisplayNo="1" adapterUid="" isOpen="0" udpPort="0" peerIPAdd="0.0.0.0" peerIP="0" peerPort="0" />
+            </slot>
+        </dev>
+        <dev id="0FB8E459-35EC-479a-BA8C-BE4F734D050D" name="LSW4" poe="0" model="S3700" settings="" system_mac="4C-1F-CC-40-4C-D9" com_port="2003" bootmode="0" cx="248.000000" cy="303.000000" edit_left="275" edit_top="357">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="22" />
+                <interface sztype="Ethernet" interfacename="GE" count="2" />
+            </slot>
+        </dev>
+    </devices>
+    <lines>
+        <line srcDeviceID="80E40477-6557-4434-B70F-0ADAB85B4FA9" destDeviceID="0FB8E459-35EC-479a-BA8C-BE4F734D050D">
+            <interfacePair lineName="Copper" srcIndex="1" srcBoundRectIsMoved="0" srcBoundRect_X="614.603210" srcBoundRect_Y="329.159393" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="0" tarBoundRectIsMoved="0" tarBoundRect_X="318.183624" tarBoundRect_Y="329.893097" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+    </lines>
+    <shapes />
+    <txttips>
+        <txttip left="77" top="3" right="557" bottom="254" content="telnet password 远程登陆&#x0D;&#x0A;&#x0D;&#x0A;&#x0D;&#x0A;1. 配置vlan ip&#x0D;&#x0A;[Huawei]int vlan 1&#x0D;&#x0A;[Huawei-Vlanif1]ip add 192.168.34.11 255.255.255.0&#x0D;&#x0A;&#x0D;&#x0A;2. 配置接口&#x0D;&#x0A;[Huawei]int e0/0/1&#x0D;&#x0A;[Huawei-Ethernet0/0/1]port link-type access &#x0D;&#x0A;&#x0D;&#x0A;3. 配置 password 登陆&#x0D;&#x0A;[Huawei]user-interface vty 0 4&#x0D;&#x0A;[Huawei-ui-vty0-4]authentication-mode password &#x0D;&#x0A;[Huawei-ui-vty0-4]set authentication password cipher 147258369&#x0D;&#x0A;[Huawei-ui-vty0-4]user privilege level 15" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="160" top="424" right="768" bottom="784" content="交换机远程登陆 aaa&#x0D;&#x0A;&#x0D;&#x0A;1. 配置vlan ip&#x0D;&#x0A;[Huawei]int vlan 1&#x0D;&#x0A;[Huawei-Vlanif1]ip add 192.168.34.11 255.255.255.0&#x0D;&#x0A;&#x0D;&#x0A;2. 配置接口&#x0D;&#x0A;[Huawei]int e0/0/1&#x0D;&#x0A;[Huawei-Ethernet0/0/1]port link-type access &#x0D;&#x0A;&#x0D;&#x0A;3. 配置 aaa&#x0D;&#x0A;[Huawei]aaa&#x0D;&#x0A;[Huawei-aaa]local-user chaoarron password cipher 147258369  # 添加一个用户&#x0D;&#x0A;[Huawei-aaa]local-user chaoarron service-type telnet # 设置用户登陆协议未telnet&#x0D;&#x0A;&#x0D;&#x0A;4. 配置登陆&#x0D;&#x0A;[Huawei]user-interface vty 0 4&#x0D;&#x0A;[Huawei-ui-vty0-4]authentication-mode aaa&#x0D;&#x0A;[Huawei-ui-vty0-4]user privilege level 15&#x0D;&#x0A;[Huawei-ui-vty0-4]protocol inbound telnet &#x0D;&#x0A;&#x0D;&#x0A;5. 开启 telnet （可选）&#x0D;&#x0A;[Huawei]telnet server enable" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+    </txttips>
+</topo>
