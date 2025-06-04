@@ -64,3 +64,21 @@ git reset <filename> 取消暂存区中的文件更改
 git reset <commit-id>  回退到特定的提交（这可能会影响到后续的提交历史）
 git checkout -- <filename> 丢弃工作区内的更改恢复至最近一次提交的状态
 ```
+
+# 6. 标签操作
+Git 标签（Tag）用于给仓库中的特定提交点加上标记，通常用于发布版本（如 v1.0, v2.0）
+```text
+git add tag <tag-name> 添加一个标签
+git add -a tag <tagname> [-a] 选项可以添加注解，执行 git tag -a 命令时，Git 会打开你的编辑器，让你写一句标签注解，就像你给提交写注解一样。
+
+git tag -a <tag-name> <commit-id>   如果我们忘了给某个提交打标签，又将它发布了，我们可以给它追加标签。
+
+git tag 查看所有标签
+git push <remote-name> <branch-name> --tags    默认情况下，git push 不会推送标签，需要显式地推送标签。
+
+git tag -d <tagname> 删除本地 tag
+
+git push <remote-name> --delete <tagnaem>  远程删除tag
+
+git tag -a <tagname> -m "<message>" 附注标签
+```
