@@ -54,19 +54,39 @@ def check_login(username, password):
 用于获取静态资源
 @fname 文件名称
 '''
+
+
 @get('/file/<fname>')
 def static_f(fname):
-    return static_file(fname,root='./', download=False, mimetype=None)
+    return static_file(fname, root='./', download=False, mimetype=None)
 
 
 # 错误页面
 @error(404)
 def error_404(error):
     return '''
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>404</title>
+    <link rel="stylesheet" href="http://localhost:8080/css/main.css?v=2"> <!-- 加上版本号防缓存 -->
+    
+</head>
+<body>
     <div style="width:100vw;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center">
-        <text>走丢啦</text>
+        <span>走丢啦</span>
         <br/>
-        <text>交钱找回来吧<text/>
-    <div/>
-    '''
+        <span class="main-color">交钱找回来吧</span>
+    </div>
+</body>
+</html>
+'''
+
+
+@route('/css/<name>')
+def static_css(name):
+    return static_file(name, root='./css/', download=False, mimetype=None)
+
+
 run(host='localhost', port=8080, debug=True)
