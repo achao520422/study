@@ -1,4 +1,4 @@
-from bottle import route, run, Bottle, get, post, request, static_file, error
+from bottle import route, run, Bottle, get, post, request, static_file, error, response
 
 
 @route('/', method='GET')
@@ -64,29 +64,33 @@ def static_f(fname):
 # 错误页面
 @error(404)
 def error_404(error):
-    return '''
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <title>404</title>
-    <link rel="stylesheet" href="http://localhost:8080/css/main.css?v=2"> <!-- 加上版本号防缓存 -->
-    
-</head>
-<body>
-    <div style="width:100vw;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center">
-        <span>走丢啦</span>
-        <br/>
-        <span class="main-color">交钱找回来吧</span>
-    </div>
-</body>
-</html>
-'''
+    response.content_type = 'text/html; charset=UTF-8'
+    return static_file('error.html', root='./', download=False, mimetype=None)
+#     return '''
+# <!DOCTYPE html>
+# <html lang="zh-CN">
+# <head>
+#     <meta charset="UTF-8">
+#     <title>404</title>
+#     <link rel="stylesheet" href="/css/style.css">
+#
+# </head>
+# <body>
+#     <div style="width:100vw;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center">
+#         <span>走丢啦</span>
+#         <br/>
+#         <span class="main-color">交钱找回来吧</span>
+#     </div>
+# </body>
+# </html>
+# '''
 
 
-@route('/css/<name>')
-def static_css(name):
-    return static_file(name, root='./css/', download=False, mimetype=None)
 
+# 静态资源路由定义
+@route('/<file>/<filename>')
+def static_css(file,filename):
+    print(file)
+    return static_file(filename, root=f'./{file}/')
 
 run(host='localhost', port=8080, debug=True)
