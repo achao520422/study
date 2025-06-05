@@ -1,0 +1,72 @@
+{
+  "data": {
+    "clustername": "jiqun1",
+    "cap": {
+      "storage": {
+        "Datastore.AllocateSpace": 1,
+        "Datastore.AllocateTemplate": 1,
+        "Datastore.Allocate": 1,
+        "Permissions.Modify": 1,
+        "Datastore.Audit": 1
+      },
+      "access": {
+        "User.Modify": 1,
+        "Permissions.Modify": 1,
+        "Group.Allocate": 1
+      },
+      "dc": {
+        "Sys.Modify": 1,
+        "SDN.Allocate": 1,
+        "Sys.Audit": 1,
+        "SDN.Use": 1,
+        "SDN.Audit": 1
+      },
+      "mapping": {
+        "Permissions.Modify": 1,
+        "Mapping.Use": 1,
+        "Mapping.Modify": 1,
+        "Mapping.Audit": 1
+      },
+      "sdn": {
+        "Permissions.Modify": 1,
+        "SDN.Audit": 1,
+        "SDN.Allocate": 1,
+        "SDN.Use": 1
+      },
+      "vms": {
+        "VM.Config.Network": 1,
+        "VM.Config.Disk": 1,
+        "VM.Config.Options": 1,
+        "VM.Config.CPU": 1,
+        "VM.Snapshot.Rollback": 1,
+        "VM.PowerMgmt": 1,
+        "Permissions.Modify": 1,
+        "VM.Console": 1,
+        "VM.Monitor": 1,
+        "VM.Allocate": 1,
+        "VM.Backup": 1,
+        "VM.Clone": 1,
+        "VM.Migrate": 1,
+        "VM.Config.HWType": 1,
+        "VM.Config.CDROM": 1,
+        "VM.Config.Cloudinit": 1,
+        "VM.Snapshot": 1,
+        "VM.Config.Memory": 1,
+        "VM.Audit": 1
+      },
+      "nodes": {
+        "Sys.Incoming": 1,
+        "Sys.Console": 1,
+        "Sys.Modify": 1,
+        "Sys.PowerMgmt": 1,
+        "Sys.Audit": 1,
+        "Sys.Syslog": 1,
+        "Permissions.Modify": 1,
+        "Sys.AccessNetwork": 1
+      }
+    },
+    "username": "root@pam",
+    "CSRFPreventionToken": "68413C6E:8Jsd1mEAW0w/MDYkz4ywyTAOEuWwH3bbIWLTYI8pgdM",
+    "ticket": "PVE:root@pam:68413C6E::ig2wt2CgnDRfPLl4RLU8gF1PTVmiHXvUaszejAHt2kjmCsnK0b12cUCXfhfIY23ztXQslf5RXQOE3Q3Xw+u0kvgh3SthVngPqM8Hr3iFDnYKgDtTvdSEqsLKHZIUaqYcUNm4goQDHpKLrqiA2OODs8gyHYG5pzt0aZ55h6Qgrub5rhgR2BhlhDhvGuLgkoW4Uf3/z8YK5dhYX1jngjCNWV+b5WAxQWwEvkf8zAgkU4WyYKfqDnzjx9OiZ1SZuyKTQoeJuIIxyvUg7YBJ5793A7vZVS67s0z9OTx2a1O25t1RLL0qDi4GlfDo0+CXuMXPi3JsZ1FTMF51riBefV5CBQ=="
+  }
+}
