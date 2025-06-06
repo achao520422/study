@@ -100,3 +100,85 @@ docker pull mysql   # 默认拉取最新版本 mysql
 
 docker run -d --restart always
 ```
+
+
+# docker 手札
+```
+# 查看 docker 的所有镜像
+docker images
+docker image ls
+
+# 查看 docker 的所有容器
+docker container ls -a
+docker ps -a
+
+
+# 创建镜像
+docker commit container name/image
+docker build
+
+
+# 安装 docker 虚拟机
+yum -y update
+yum install -y docker
+
+
+# docker 查询镜像
+docker search <image-name>
+
+
+# 拉取镜像
+docker pull <image-naem>:<tag>
+
+
+# docker 容器操作
+docker pause <container-id>
+docker unpause <container-id>
+docker stop <container-id>
+# -t:停止容器前等待的时间（默认10秒）
+
+
+docker start -i <container-id>
+# -i:启动容器并进入交互模式
+# -a:连接容器并打印输出或错误
+
+
+docker restart <container-id>
+# -t:停止容器前等待的时间（默认10秒）
+
+
+docekr exec -it <container-id> bash
+docekr exec -it --user root <container-id> bash
+
+doker port <container-id> # 查看容器端口映射
+docker logs <container-id> # 查看容器运行日志
+docker top <container-id>  # 查看容器中的进程
+
+docker stats 查看 docker 运行状态
+
+
+docekr update --ressart always <container-id>
+
+
+创建docker内部网段
+
+
+docker network create --subnet=172.18.0.0/24 net1
+# --subnet=172.18.0.0/24:给创建的网段指定IP
+
+
+查看docker内部网段
+
+
+docker network inspect net1
+
+
+查看docker内部的所有网段
+
+
+docker network ls
+
+删除docker内部网段
+
+docker network rm net1
+```
