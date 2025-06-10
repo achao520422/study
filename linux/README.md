@@ -90,7 +90,7 @@ NAME（命令名称）——命令的名称和简要的介绍。
 ```
 2. 组合命令
 ```bash
-1. ；使用 ；分隔多个命令一次执行    ls -a;mkdir -vp test/x.txt;ls test/
+1. ; 使用 ; 分隔多个命令一次执行    ls -a;mkdir -vp test/x.txt;ls test/
 2. && 只有前面的命令执行成功才执行接下来的命令 ls -a&&mkdir -vp test/x.txt&&ls test/
 3. || 只有前面的命令运行失败才运行后面的命令
 4. $() 将一个命令的输出插入到另一个命令 echo "res:$(ls)"
