@@ -108,9 +108,45 @@ NAME（命令名称）——命令的名称和简要的介绍。
 3. cat <filename1> <filename2> > <filename3>  将文件拼接至标准输出设备并且重定向到新文件
 4. cat -n <filename1> <filename2> 拼接文件，并给文件加上行号
 ```
+2. 指令
+```bash
+1. less <filename> 分屏查看文本文件
+2. less -N <filename> 分屏查看文本文件并且显示行号
+3. /‘<content>’ 在分页器中搜索，只能在状态实在查看内容的时候进行搜索
+4. 在查看的时候长按 v 进入编辑模式
+5. head <filename> 查看前十行
+6. head <filename1> <filename2> ... 查看多个文件的前十行
+7. head -n <count> <filename> 查看文件的前 count 行
+8. head -c 查看文件前几个字节、几K字节或几M字节的内容,例如head -c 11k a.txt
+9. tail <filename> 查看最后10行内容
+10. tail <filename1> <filename2> ... 查看多个文件的最后10行内容
+11. tail -n 查看一个或多个文件的后面 n 行内容
+12. tail -f 查看一个或多个文件中不断更新的最后几行
+```
 
+# chgrp 拥有者和权限
+1. 修改文件或目录属于的用户组
+```bash
+1. chgrp achao a.txt 将用户组更改为 achao
+2. chgrp -R achao a.txt 针对一个文件夹递归修改
+3. chgrp -v <user-group> <filename> 使用chgrp 命令查看文件用户组的变化
+```
 
+2. chown 修改文件和目录的拥有者
+```bash
+1. chown <user> <filename> 修改文件或目录的拥有者
+2. chown <user>:<user-group> <filename> 同时修改文件和目录的拥有者和用户组 chown root:achao bin-n.txt
+3. chown -v <user> <filename> 查看修改过程 
+因为chown能够完成chgrp的所有功能，所以几乎不需要使用
+chgrp命令，除非你喜欢。
 
+```
+3. chomd 权限基础
+![alt text](image.png)
+![alt text](image-1.png)
+```bash
+
+```
 
 
 
