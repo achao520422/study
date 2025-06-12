@@ -165,12 +165,117 @@
 7. unzip -t <filename>.zip # 测试解压 
 ```
 
+# 6. 查找资料
+1. locate 搜索文件名数据库
+```bash
+1. locate -i # 搜索文件名数据库，不区分大小写 
+2. -n # 管理搜索文件名数据库时返回的结果
+3. updatedb # 更新 locate 数据库
 
+```
+2. grep 搜索
+![alt text](image-4.png)
+```bash
+1. grep <content> <filename> # 在文件搜索匹配文本
+2. grep -r <content> <filename> # 递归式的搜索文件中的内容
+3. grep -i <contentt> <filename> # 忽略大小写搜索
+4. grep -w <contetnt> <filename> # 只搜索完全匹配，并且单独存在的
+5. grep -n <content> <filename> # 显示行号
+6. grep -[ABC] <conut> <content> <filename> # 查看文件中搜索内容的上下文信息 A:after B:before C:content
+7. grep -v <content> <filname> # 显示没有搜索内容的其余行
+```
+3. find 搜索
+![alt text](image-5.png)
+![alt text](image-6.png)
+```bash
+1. find -name <filename> # 根据 文件名搜索文件
+2. find -user <username> # 根据文件的拥有者搜索文件
+3. find -group <groupname> # 根据所属组搜索文件
+4. find -size <count> # 根据文件大小搜索
+5. find -type <type> # 根据文件类型搜索
+6. find -a # 多选项搜索，当表达式均为true时显示结果，如 find . -name "Rolling_Stones*" -a -type f
+7. find -o # 当表达式中只有一个为true时就显示结果如， find . -size +10M -o -size 10M 
+8. find -n <content> # 反向搜索，满足 content 的不要
+9. find -exec #对搜索到的每个文件执行命令，如find . -name "* *m3u" -exec rename 's/\ /_/g' {} 
+10. find -fprint # 将搜索结果打印到文件 
+```
+
+# 7. shell 
+1. history 查看命令行历史
+```bash
+1. history # 查看历史命令，如便捷查看 history | less
+2. history | tail -n 10 # 查看最后十条命令
+3. !! 
+4. ![##] # 执行 history 中的对应编号指令 !499 
+5. ![string] # 使用字符串再次运行以前运行过的命令 ! cat 如果有多条 cat 命令，会执行最近执行的一条
+```
+2. alias 
+```bash
+1. alias # 显示所有命令的别名
+2. alias [alias name] # 查看特定命令的别名 
+3. alias [alias]= '[command]' # 创建新的临时别名 
+4. alias [alias name]= '[command]' # 创建新的永久别名 
+5. unalias <alias name> # 删除别名
+```
+
+# 8. 监视系统资源
+![alt text](image-7.png)
+![alt text](image-8.png)
+```bash
+1. ps aux # 查询当前正在运行的所有进程 a 表示所有用户 u 以面向用户的格式显示 x 没有控制tty①或终端屏幕的进程，“显示每个进程”的另一种方法
+2. ps axjf # 查看进程树
+3. ps U [username] # 查看特定用户拥有的进程 
+4. kill <pid> # 终止正在运行的进程 
+5. top # 查看正在运行的进程的动态更新列表
+6. lsof  # 列出打开的文件 
+7. lsof -u <username> # 列出某个用户打开的文件
+8. lsof [file] # 列出正在使用特定文件的用户
+9. lsof -c [program] # 列出特定程序的进程
+10. free # 显示系统RAM的信息 在默认情况下，free命令以千字节为单位显示结果，与使用-k选项一样。不过，可以改变这一设置。-b选项以字节为单位显示内存使用大小，而-m选项（可能是最常用的选项）则以兆字节为单位。 
+11. df # 显示文件系统的磁盘使用情况 df命令是按以千字节（KB）为单位来显示结果的，但如果这里换用-h(或--human-readable)选项，结果通常会更容易理解。 
+12. du [-h] # 报告目录使用的文件空间 df命令可以提供整个硬盘的情况，但如果只想知道一个目录和它的内容使用了多少空间，又该怎么办呢？du命令（disk usage的缩写）能够解决这个问题。先用cd命令将当前工作目录切换到待查的目录，然后运行du命令。
+```
+
+
+
+
+
+
+
+
+
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 # 50 常用高级指令
 ```bash
-find <file-dir> -name <filename> 按名称搜索文件
-finr <file-dir> -type f mtime 7    查看近七天修改的文件
+find <file-dir> -name <filename> # 按名称搜索文件
+finr <file-dir> -type f mtime 7    # 查看近七天修改的文件
 
 grep <content> file.txt                 # 搜索指定文本
 grep -r <content> /path/to/dir          # 递归搜索目录中的文本
