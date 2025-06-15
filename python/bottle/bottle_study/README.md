@@ -65,22 +65,22 @@ def multiply(name='default'):
 # 1. POST方法一般用于HTML表单的提交。
 from bottle import get, post, request # or route
 
-@get('/login') # or @route('/login')
+@get('/thread_work') # or @route('/thread_work')
 def login():
     return '''
-        <form action="/login" method="post">
+        <form action="/thread_work" method="post">
             Username: <input name="username" type="text" />
             Password: <input name="password" type="password" />
             <input value="Login" type="submit" />
         </form>
     '''
 
-@post('/login') # or @route('/login', method='POST')
+@post('/thread_work') # or @route('/thread_work', method='POST')
 def do_login():
     username = request.forms.get('username')
     password = request.forms.get('password')
     if check_login(username, password):
-        return "<p>Your login information was correct.</p>"
+        return "<p>Your thread_work information was correct.</p>"
     else:
         return "<p>Login failed.</p>"
 

@@ -58,26 +58,26 @@ class PveApi:
 # cookies = {
 #     'PVE:root@pam:61B2EC05::Y1uRp+iFUpcSTEQsE0M8FB3aQi7lpNO3gIxr/g7rJX6GOLSOshKv9WHsGTUD3huFS3C3kIt/S3tFpg34xqHWFpF5cRjyqyG66ca3h+9ag/wSGuKPt+SkagVJOFZ2nlroSy5pY8sCZu+q5XhwLhElGSJOG43dMUod4Fhc5U2jdRn52FV15dY9aC9ym3FNpxRuNPRorSQASDFASDFZXCZduhEpDMKsTiSYxE0Owwme5g+sNZ1LKbkX5mpM2QdlN183jLU/AVgXPAw5hLdEeZorojC7HcO8f7A4SvmBxRzMl4GbXJYvwc+IyqTM+mZ9oPJPBTgQb+MAEafisW5Vbg': '=',
 # }
-
-
-import requests
-
-cookies = {
-    'PVE:root@pam:61B2EC05::Y1uRp+iFUpcSTEQsE0M8FB3aQi7lpNO3gIxr/g7rJX6GOLSOshKv9WHsGTUD3huFS3C3kIt/S3tFpg34xqHWFpF5cRjyqyG66ca3h+9ag/wSGuKPt+SkagVJOFZ2nlroSy5pY8sCZu+q5XhwLhElGSJOG43dMUod4Fhc5U2jdRn52FV15dY9aC9ym3FNpxRuNPRorSQASDFASDFZXCZduhEpDMKsTiSYxE0Owwme5g+sNZ1LKbkX5mpM2QdlN183jLU/AVgXPAw5hLdEeZorojC7HcO8f7A4SvmBxRzMl4GbXJYvwc+IyqTM+mZ9oPJPBTgQb+MAEafisW5Vbg': '=',
-}
-
-headers = {
-     "Authorization": 'PVEAPIToken=',
-    # 'Cookie': 'PVE:root@pam:61B2EC05::Y1uRp+iFUpcSTEQsE0M8FB3aQi7lpNO3gIxr/g7rJX6GOLSOshKv9WHsGTUD3huFS3C3kIt/S3tFpg34xqHWFpF5cRjyqyG66ca3h+9ag/wSGuKPt+SkagVJOFZ2nlroSy5pY8sCZu+q5XhwLhElGSJOG43dMUod4Fhc5U2jdRn52FV15dY9aC9ym3FNpxRuNPRorSQASDFASDFZXCZduhEpDMKsTiSYxE0Owwme5g+sNZ1LKbkX5mpM2QdlN183jLU/AVgXPAw5hLdEeZorojC7HcO8f7A4SvmBxRzMl4GbXJYvwc+IyqTM+mZ9oPJPBTgQb+MAEafisW5Vbg==',
-    'Content-Type': 'application/x-www-form-urlencoded',
-}
-
-response = requests.get(
-    'https://192.168.34.8:8006/api2/json/nodes/testpve/qemu/102/status/current',
-    cookies=cookies,
-    headers=headers,
-    verify=False,
-).text
-
-
-print(response)
+#
+#
+# import requests
+#
+# cookies = {
+#     'PVE:root@pam:61B2EC05::Y1uRp+iFUpcSTEQsE0M8FB3aQi7lpNO3gIxr/g7rJX6GOLSOshKv9WHsGTUD3huFS3C3kIt/S3tFpg34xqHWFpF5cRjyqyG66ca3h+9ag/wSGuKPt+SkagVJOFZ2nlroSy5pY8sCZu+q5XhwLhElGSJOG43dMUod4Fhc5U2jdRn52FV15dY9aC9ym3FNpxRuNPRorSQASDFASDFZXCZduhEpDMKsTiSYxE0Owwme5g+sNZ1LKbkX5mpM2QdlN183jLU/AVgXPAw5hLdEeZorojC7HcO8f7A4SvmBxRzMl4GbXJYvwc+IyqTM+mZ9oPJPBTgQb+MAEafisW5Vbg': '=',
+# }
+#
+# headers = {
+#      "Authorization": 'PVEAPIToken=',
+#     # 'Cookie': 'PVE:root@pam:61B2EC05::Y1uRp+iFUpcSTEQsE0M8FB3aQi7lpNO3gIxr/g7rJX6GOLSOshKv9WHsGTUD3huFS3C3kIt/S3tFpg34xqHWFpF5cRjyqyG66ca3h+9ag/wSGuKPt+SkagVJOFZ2nlroSy5pY8sCZu+q5XhwLhElGSJOG43dMUod4Fhc5U2jdRn52FV15dY9aC9ym3FNpxRuNPRorSQASDFASDFZXCZduhEpDMKsTiSYxE0Owwme5g+sNZ1LKbkX5mpM2QdlN183jLU/AVgXPAw5hLdEeZorojC7HcO8f7A4SvmBxRzMl4GbXJYvwc+IyqTM+mZ9oPJPBTgQb+MAEafisW5Vbg==',
+#     'Content-Type': 'application/x-www-form-urlencoded',
+# }
+#
+# response = requests.get(
+#     'https://192.168.34.8:8006/api2/json/nodes/testpve/qemu/102/status/current',
+#     cookies=cookies,
+#     headers=headers,
+#     verify=False,
+# ).text
+#
+#
+# print(response)

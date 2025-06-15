@@ -55,4 +55,8 @@ def command(command='ls',options = '-a',path='/'):
 
         # 等待一段时间再检查
         time.sleep(1)
-command()
+# command()
+
+# print(dynamic_path(path=[{'nodes':'com'},{'qemu':101}]))
+
+print(proxmox.get_info())

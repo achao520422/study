@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>624</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>180</width>
+    <height>20</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:transparent;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>90</y>
+      <width>281</width>
+      <height>431</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#frame{
+
+background-color: qconicalgradient(cx:0.5, cy:0.517, angle:0, stop:0 rgba(0, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 10px;
+}
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>40</y>
+       <width>101</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#label{
+font-size:30px;
+font: 30pt &quot;幼圆&quot;;
+line-hright: 30px;
+}</string>
+     </property>
+     <property name="text">
+      <string>登陆</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>100</y>
+      <width>300</width>
+      <height>411</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#frame_2{
+	background-color:white;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+QLineEdit{
+	color: rgba(255, 255, 255,0);
+	border: none;
+	color:gray;
+	border-bottom: 1px solid gray;
+}
+QLineEdit:focus{
+border-bottom: 1px solid red;
+height: 35px;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="close_btn">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>10</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>OpenHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#close_btn:hover{
+	padding-bottom: 10px;
+	color:green;
+}</string>
+     </property>
+     <property name="text">
+      <string>关闭</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>90</y>
+       <width>241</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLineEdit" name="userId">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="inputMask">
+         <string/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>请输入账号</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="password">
+        <property name="whatsThis">
+         <string/>
+        </property>
+        <property name="inputMask">
+         <string/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>请输入密码</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QPushButton" name="login">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>290</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>幼圆</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>ClosedHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#login{border-radius: 10px;
+border: 1px solid gray;}
+#login:hover{
+	border: 1px solid red;
+}</string>
+     </property>
+     <property name="text">
+      <string>登陆</string>
+     </property>
+    </widget>
+   </widget>
+   <zorder>frame_2</zorder>
+   <zorder>frame</zorder>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
+ <connections/>
+</ui>
